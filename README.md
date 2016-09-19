@@ -1,6 +1,6 @@
 # ImagizerJs
 
-The offical Javascript client of the Imagizer Media Engine
+The official Javascript client of the Imagizer Media Engine
 
 The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time. See all Imagizer features in our [Doc](demo.imagizercdn.com/doc).
 
