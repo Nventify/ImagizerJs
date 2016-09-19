@@ -1,0 +1,33 @@
+{
+  "name": "imagizer-js",
+  "version": "0.1.0",
+  "description": "The offical Javascript client of the Imagizer Media Engine",
+  "main": "imagizer.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nventify/ImagizerJs.git"
+  },
+  "keywords": [
+    "nventify",
+    "imagizer",
+    "image",
+    "photos",
+    "resize",
+    "scale",
+    "crop",
+    "responsive",
+    "dynamic"
+  ],
+  "author": "Nicholas Pettas <nick@nventify.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Nventify/ImagizerJs/issues"
+  },
+  "homepage": "https://github.com/Nventify/ImagizerJs#readme",
+  "devDependencies": {
+    "uglify-js": "^2.6.2"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp ./src/imagizer.js ./dist/imagizer.js && ./node_modules/uglify-js/bin/uglifyjs ./dist/imagizer.js --mangle > ./dist/imagizer.min.js"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagizer Test Page</title>
+
+    <script src="../dist/imagizer.min.js"></script></head>
+<body>
+
+<img data-src="/img673/JrvDWd.jpg?width=300&height=300&crop=fit">
+<img data-src="/img911/zPCsEi.jpg?width=300&height=300&crop=fit">
+<img data-src="/img538/AUodLs.jpg?width=300&height=300&crop=fit">
+<img data-src="/img538/m18Hha.jpg?width=300&height=300&crop=fit">
+<img data-src="/img540/r6EjeE.jpg?width=300&height=300&crop=fit">
+<img data-src="/img538/RVVemq.jpg?width=300&height=300&crop=fit">
+<img data-src="/img843/ullaw.jpg?width=300&height=300&crop=fit">
+<img data-src="/img673/Cj1oEL.jpg?width=300&height=300&crop=fit">
+
+<script>
+    (function() {
+        // Since we are using Imagizer Engine Demo Service
+        // we'll need to specify our Image storage origin
+        // Imagizer will fetch your images from this endpoint
+        // http://demo.imagizercdn.com/doc/#hostname
+        imagizerClient.config.originImageHost = "demo-images.imagizercdn.com";
+
+        // Enable Auto device pixel ratio setting.
+        // Device pixel ratio will now be detected
+        // and automatically applied to image urls
+        // http://demo.imagizercdn.com/doc/#dpr-device-pixel-ratio
+        imagizerClient.config.autoDpr = true;
+
+        // Compress our images by setting the global quality
+        // http://demo.imagizercdn.com/doc/#quality
+        imagizerClient.config.quality = 60;
+
+        // Use best format that's supported by the browser
+        // (webp, jpg, png)
+        // http://demo.imagizercdn.com/doc/#auto-format
+        imagizerClient.config.format = "auto";
+
+        // Load images from specified selector
+        imagizerClient.loadImages("img");
+    })();
+</script>
+
+</body>
+</html>

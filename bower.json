@@ -1,0 +1,28 @@
+{
+  "name": "imagizer-js",
+  "authors": [
+    "Nicholas Pettas <nick@ventify.com>"
+  ],
+  "description": "The offical Javascript client of the Imagizer Media Engine",
+  "main": "imagizer.js",
+  "moduleType": [],
+  "keywords": [
+    "nventify",
+    "imagizer",
+    "image",
+    "scale",
+    "crop",
+    "responsive",
+    "resize",
+    "dynamic"
+  ],
+  "license": "Apache v2.0",
+  "homepage": "nventify.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
