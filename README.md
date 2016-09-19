@@ -47,8 +47,8 @@ Basic usage
 <img data-src="/img911/zPCsEi.jpg?width=300">
 
 <!-- Scale and crop image to 300px by 300px -->
-<img data-src="/img673/JrvDWd.jpg?width=300&height=300&crop=fit">
+<img data-src="/img673/JrvDWd.jpg?width=300&amp;height=300&amp;crop=fit">
 
 <!-- Crop image around detected face and scale to 300px wide -->
-<img data-src="img673/DCxTh3.jpg?crop=face&width=300">
+<img data-src="img673/DCxTh3.jpg?crop=face&amp;width=300">
 ```
