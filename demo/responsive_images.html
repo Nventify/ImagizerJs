@@ -8,36 +8,41 @@
 </head>
 <body>
 
-    <img data-src="/img673/JrvDWd.jpg" data-res="true">
-    <img data-src="/img911/zPCsEi.jpg" data-res="true">
-    <img data-src="/img538/AUodLs.jpg" data-res="true">
-    <img data-src="/img538/m18Hha.jpg" data-res="true">
-    <img data-src="/img540/r6EjeE.jpg" data-res="true">
-    <img data-src="/img538/RVVemq.jpg" data-res="true">
-    <img data-src="/img843/ullaw.jpg" data-res="true">
+<div class="container-fluid">
+    <div class="m-x-auto" style="width: 1024px">
+        <img data-src="/img673/JrvDWd.jpg" data-res="true">
+        <img data-src="/img911/zPCsEi.jpg" data-res="true">
+        <img data-src="/img538/AUodLs.jpg" data-res="true">
+        <img data-src="/img538/m18Hha.jpg" data-res="true">
+        <img data-src="/img540/r6EjeE.jpg" data-res="true">
+        <img data-src="/img538/RVVemq.jpg" data-res="true">
+        <img data-src="/img843/ullaw.jpg" data-res="true">
+    </div>
 
-    <script>
-        (function() {
-            // Since we are using Imagizer Engine Demo Service
-            // we'll need to specify our Image storage origin
-            // Imagizer will fetch your images from this endpoint
-            // http://demo.imagizercdn.com/doc/#hostname
-            imagizerClient.config.originImageHost = "demo-images.imagizercdn.com";
+</div>
 
-            // Enable Auto device pixel ratio setting.
-            // Device pixel ratio will now be detected
-            // and automatically applied to image urls
-            // http://demo.imagizercdn.com/doc/#dpr-device-pixel-ratio
-            imagizerClient.config.autoDpr = true;
+<script>
+    (function() {
+        // Since we are using Imagizer Engine Demo Service
+        // we'll need to specify our Image storage origin
+        // Imagizer will fetch your images from this endpoint
+        // http://demo.imagizercdn.com/doc/#hostname
+        imagizerClient.config.originImageHost = "demo-images.imagizercdn.com";
 
-            // Compress our images by setting the global quality
-            // http://demo.imagizercdn.com/doc/#quality
-            imagizerClient.config.quality = 60;
+        // Enable Auto device pixel ratio setting.
+        // Device pixel ratio will now be detected
+        // and automatically applied to image urls
+        // http://demo.imagizercdn.com/doc/#dpr-device-pixel-ratio
+        imagizerClient.config.autoDpr = true;
 
-            // Load images from specified selector
-            imagizerClient.loadImages("img");
-        })();
-    </script>
+        // Compress our images by setting the global quality
+        // http://demo.imagizercdn.com/doc/#quality
+        imagizerClient.config.quality = 60;
+
+        // Load images from specified selector
+        imagizerClient.loadImages("img");
+    })();
+</script>
 
 </body>
 </html>
