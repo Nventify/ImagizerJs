@@ -14,3 +14,11 @@ h3 {
 .image-container img {
     padding: 10px;
 }
+
+.responsive-image-container {
+    text-align: center;
+}
+
+.responsive-image-container img {
+    padding: 1vw;
+}

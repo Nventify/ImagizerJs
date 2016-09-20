@@ -51,8 +51,8 @@ var imagizerClient = (function () {
         params.dpr = 1;
 
         var images = [];
-        for(var i = 10; i < 300; i++) {
-            params.width = i * 10;
+        for(var i = 100; i < 3000; i+=100) {
+            params.width = i;
             images.push(buildUrl(path, params) + " " + params.width + "w");
         }
 
