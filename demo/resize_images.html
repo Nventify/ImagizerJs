@@ -4,17 +4,94 @@
     <meta charset="UTF-8">
     <title>Imagizer Test Page</title>
 
-    <script src="../dist/imagizer.min.js"></script></head>
-<body>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<img data-src="/img673/JrvDWd.jpg?width=300&height=300&crop=fit">
-<img data-src="/img911/zPCsEi.jpg?width=300&height=300&crop=fit">
-<img data-src="/img538/AUodLs.jpg?width=300&height=300&crop=fit">
-<img data-src="/img538/m18Hha.jpg?width=300&height=300&crop=fit">
-<img data-src="/img540/r6EjeE.jpg?width=300&height=300&crop=fit">
-<img data-src="/img538/RVVemq.jpg?width=300&height=300&crop=fit">
-<img data-src="/img843/ullaw.jpg?width=300&height=300&crop=fit">
-<img data-src="/img673/Cj1oEL.jpg?width=300&height=300&crop=fit">
+    <link rel="stylesheet" href="css/imagizer.css">
+
+    <script src="../dist/imagizer.min.js"></script>
+</head>
+
+<div class="container">
+    <div class="row">
+        <h1>Imagizer <small> Javascript Demo</small></h1>
+    </div>
+
+    <div class="row">
+
+    <h2>Scale</h2>
+        <h3>By Width</h3>
+        <img data-src="/img673/JrvDWd.jpg?width=100">
+        <img data-src="/img673/JrvDWd.jpg?width=200">
+        <img class="hidden-xs hidden-sm" data-src="/img673/JrvDWd.jpg?width=300">
+        <img class="hidden-xs hidden-sm" data-src="/img673/JrvDWd.jpg?width=400">
+
+    <h3>By height</h3>
+        <img data-src="/img633/Kc51fJ.jpg?height=200">
+        <img data-src="/img633/Kc51fJ.jpg?height=300">
+        <img class="hidden-xs hidden-sm" data-src="/img633/Kc51fJ.jpg?height=400">
+        <img class="hidden-xs hidden-sm" data-src="/img633/Kc51fJ.jpg?height=500">
+    </div>
+
+    <div class="row">
+        <h2>Scale and Crop</h2>
+
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb">
+            <img data-src="/img673/JrvDWd.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb">
+            <img data-src="/img911/zPCsEi.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb hidden-xs">
+            <img data-src="/img538/AUodLs.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb hidden-xs">
+            <img data-src="/img538/m18Hha.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb hidden-xs">
+            <img data-src="/img540/r6EjeE.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb hidden-xs">
+            <img data-src="/img538/RVVemq.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb hidden-xs">
+            <img data-src="/img843/ullaw.jpg?width=260&height=260&crop=fit">
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb hidden-xs">
+            <img data-src="/img673/Cj1oEL.jpg?width=260&height=260&crop=fit">
+        </div>
+    </div>
+
+    <div class="row image-container">
+        <h2>Face Crop</h2>
+        <img data-src="/img811/d4r2.jpg?width=400">
+        <img data-src="/img811/d4r2.jpg?width=400&height=400&crop=face">
+        <img class="hidden-sm" data-src="/img811/d4r2.jpg?width=260&height=260&crop=face">
+    </div>
+
+    <div class="row image-container">
+        <h2>Entropy Crop</h2>
+        <img data-src="/img923/m6MVo9.jpg?width=400">
+        <img data-src="/img923/m6MVo9.jpg?width=400&height=500&crop=entropy">
+    </div>
+
+    <div class="row image-container">
+        <h2>Watermarks</h2>
+        <img data-src="/img909/I61iCD.jpg?width=300&mark=/img921/KlViNj.png">
+        <img data-src="/img909/I61iCD.jpg?width=300&mark=/img921/KlViNj.png&mark_scale=60&mark_pos=bottom,right&mark_offset=2">
+        <img data-src="/img909/I61iCD.jpg?width=300&mark=/img921/KlViNj.png&mark_scale=60&mark_pos=bottom,right&mark_offset=2&mark_alpha=40">
+    </div>
+
+
+    <div class="row image-container">
+        <h2>Filters</h2>
+        <img data-src="/img909/oYhUY5.jpg?width=300">
+        <img data-src="/img909/oYhUY5.jpg?width=300&filter=2">
+        <img data-src="/img909/oYhUY5.jpg?width=300&filter=21">
+    </div>
+</div>
 
 <script>
     (function() {
