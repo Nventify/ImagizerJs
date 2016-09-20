@@ -76,6 +76,9 @@ var imagizerClient = (function () {
 
             if (params.width) {
                 image.width = params.width;
+
+            } else if (params.height) {
+                image.height = params.height;
             }
 
             if (params.height && params.crop == "fit") {
