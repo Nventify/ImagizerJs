@@ -52,3 +52,15 @@ Basic usage
 <!-- Crop image around detected face and scale to 300px wide -->
 <img data-src="img673/DCxTh3.jpg?crop=face&amp;width=300">
 ```
+Responsive Images
+
+```html
+<!-- Scales and crops image automatically to fit "sizes" attribute -->
+<img data-src="/img673/JrvDWd.jpg" data-res="true" sizes="45vw">
+<img data-src="/img911/zPCsEi.jpg" data-res="true" sizes="45vw">
+<img data-src="/img538/AUodLs.jpg" data-res="true" sizes="45vw">
+<img data-src="/img538/m18Hha.jpg" data-res="true" sizes="45vw">
+```
+## Demos
+- [Basic Usage](http://demo.imagizercdn.com/javascript-demo/resize_images.html)
+- [Responsive Images](http://demo.imagizercdn.com/javascript-demo/responsive_images.html)
