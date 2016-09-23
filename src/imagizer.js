@@ -23,19 +23,31 @@ var imagizerClient = (function () {
                 var path = image.getAttribute("data-src");
 
                 if (path) {
-                    var params = getParams(path);
+                    var urlPaths = parseUrl(path);
 
                     if (image.getAttribute("data-res")) {
-                        loadResponsiveImage(image, path, params);
+                        loadResponsiveImage(image, urlPaths.path, urlPaths.params);
 
                     } else {
-                        loadImage(image, path, params);
+                        loadImage(image, urlPaths.path, urlPaths.params);
                     }
                 }
             }
         }
 
         return this;
+    }
+
+    function parseUrl(url) {
+        var parser = document.createElement('a');
+        parser.href = url;
+
+        return {
+            scheme: parser.protocol,
+            hostname: parser.host,
+            path: parser.pathname,
+            params: getParams(parser.search)
+        };
     }
 
     function getParams(str) {
@@ -47,7 +59,6 @@ var imagizerClient = (function () {
 
     function loadResponsiveImage(image, path, params) {
         delete params.width;
-        delete params.height;
 
         var images = [];
         for(var i = 100; i < 3000; i+=100) {
@@ -72,7 +83,7 @@ var imagizerClient = (function () {
             return false;
         }
 
-        var url = buildUrl(path);
+        var url = buildUrl(path, params);
 
         var downloadingImage = new Image();
         downloadingImage.onload = function(){
