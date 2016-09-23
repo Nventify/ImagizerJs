@@ -1,5 +1,5 @@
 var DEFAULT_QUALITY = 90;
-var DEFAULT_DPR = 1.0;
+var DEFAULT_DPR = 1;
 var DEFAULT_IMAGIZER_HOST = "demo.imagizercdn.com";
 
 var imagizerClient = (function () {
@@ -48,11 +48,12 @@ var imagizerClient = (function () {
     function loadResponsiveImage(image, path, params) {
         delete params.width;
         delete params.height;
-        params.dpr = 1;
 
         var images = [];
         for(var i = 100; i < 3000; i+=100) {
             params.width = i;
+            params.dpr = 1;
+
             images.push(buildUrl(path, params) + " " + params.width + "w");
         }
 
@@ -61,6 +62,9 @@ var imagizerClient = (function () {
         if (!image.getAttribute("srcset")) {
             image.setAttribute("srcset", "100vw");
         }
+
+        // set fallback tag for browsers that do not support srcset
+        image.setAttribute("src", buildUrl(path));
     }
 
     function loadImage(image, path, params) {
@@ -124,11 +128,17 @@ var imagizerClient = (function () {
         }
 
         if (!params.dpr) {
-            if (config.dpr != DEFAULT_DPR || !config.autoDpr) {
-                params.dpr = config.dpr;
-            } else {
+            if (config.autoDpr) {
                 params.dpr = getDpr();
+            } else {
+                params.dpr = config.dpr;
             }
+        }
+
+        // no need to send default dpr
+        // that will be assumed on the backend
+        if (params.dpr == DEFAULT_DPR) {
+            delete params.dpr;
         }
 
         if (config.quality != DEFAULT_QUALITY) {

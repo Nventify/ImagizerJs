@@ -1,6 +1,6 @@
 {
   "name": "imagizer-js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "The offical Javascript client of the Imagizer Media Engine",
   "main": "imagizer.js",
   "repository": {
