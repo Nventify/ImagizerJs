@@ -61,6 +61,9 @@ var imagizerClient = (function () {
         if (!image.getAttribute("srcset")) {
             image.setAttribute("srcset", "100vw");
         }
+
+        // set fallback tag for browsers that do not support srcset
+        image.setAttribute("src", buildUrl(path));
     }
 
     function loadImage(image, path, params) {
