@@ -70,8 +70,8 @@ var imagizerClient = (function () {
 
         image.setAttribute("srcset", images);
 
-        if (!image.getAttribute("srcset")) {
-            image.setAttribute("srcset", "100vw");
+        if (!image.getAttribute("sizes")) {
+            image.setAttribute("sizes", "100vw");
         }
 
         // set fallback tag for browsers that do not support srcset
