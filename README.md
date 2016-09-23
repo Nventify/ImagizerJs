@@ -14,13 +14,9 @@ npm
 npm install --save imagizer-js
 ```
 
-Include Imagizer
-```html
-<script src="dist/imagizer.min.js"></script>
-```
-
 ## Configure
 ```html
+<script src="dist/imagizer.min.js"></script>
 <script>
     // Since we are using Imagizer Engine Demo Service
     // we'll need to specify our Image storage origin
