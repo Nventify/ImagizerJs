@@ -1,6 +1,15 @@
 var DEFAULT_QUALITY = 90;
 var DEFAULT_DPR = 1;
 var DEFAULT_IMAGIZER_HOST = "demo.imagizercdn.com";
+var DEFAULT_RESPONSIVE_SIZE = "100vw";
+
+var ATTRIBUTE_NAMES = {
+    datasrc: "data-src",
+    datares: "data-res",
+    src: 'src',
+    srcset: 'srcset',
+    sizes: 'sizes'
+};
 
 var imagizerClient = (function () {
 
@@ -11,7 +20,8 @@ var imagizerClient = (function () {
         quality: DEFAULT_QUALITY,
         dpr: DEFAULT_DPR,
         useHttps: false,
-        originImageHost: null
+        originImageHost: null,
+        attributeNames: ATTRIBUTE_NAMES
     };
 
     function loadImages(selector) {
@@ -20,12 +30,12 @@ var imagizerClient = (function () {
         for (var i = 0; i < imageTags.length; i++) {
             if (imageTags[i]) {
                 var image = imageTags[i];
-                var path = image.getAttribute("data-src");
+                var path = image.getAttribute(ATTRIBUTE_NAMES.datasrc);
 
                 if (path) {
                     var urlPaths = parseUrl(path);
 
-                    if (image.getAttribute("data-res")) {
+                    if (image.getAttribute(ATTRIBUTE_NAMES.datares)) {
                         loadResponsiveImage(image, urlPaths.path, urlPaths.params);
 
                     } else {
@@ -68,14 +78,14 @@ var imagizerClient = (function () {
             images.push(buildUrl(path, params) + " " + params.width + "w");
         }
 
-        image.setAttribute("srcset", images);
+        image.setAttribute(ATTRIBUTE_NAMES.srcset, images);
 
-        if (!image.getAttribute("sizes")) {
-            image.setAttribute("sizes", "100vw");
+        if (!image.getAttribute(ATTRIBUTE_NAMES.sizes)) {
+            image.setAttribute(ATTRIBUTE_NAMES.sizes, DEFAULT_RESPONSIVE_SIZE);
         }
 
         // set fallback tag for browsers that do not support srcset
-        image.setAttribute("src", buildUrl(path));
+        image.setAttribute(ATTRIBUTE_NAMES.src, buildUrl(path));
     }
 
     function loadImage(image, path, params) {
