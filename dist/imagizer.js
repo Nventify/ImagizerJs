@@ -35,6 +35,13 @@ var imagizerClient = (function () {
                 if (path) {
                     var urlPaths = parseUrl(path);
 
+                    // setup the hostname path to point to the origin server
+                    if (!config.originImageHost && urlPaths.hostname && urlPaths.hostname != DEFAULT_IMAGIZER_HOST) {
+                        urlPaths.params.hostname = urlPaths.hostname;
+                    } else if (config.originImageHost) {
+                        urlPaths.params.hostname = config.originImageHost;
+                    }
+
                     if (image.getAttribute(ATTRIBUTE_NAMES.datares)) {
                         loadResponsiveImage(image, urlPaths.path, urlPaths.params);
 
@@ -143,10 +150,6 @@ var imagizerClient = (function () {
 
         var scheme = config.useHttps ? "https" : "http";
         var url = scheme + "://" +  config.imagizerHost + path;
-
-        if (config.originImageHost) {
-            params.hostname = config.originImageHost;
-        }
 
         if (!params.dpr) {
             if (config.autoDpr) {
