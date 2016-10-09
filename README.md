@@ -2,7 +2,7 @@
 
 The official Javascript client of the Imagizer Media Engine
 
-The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time. See all Imagizer features in our [Doc](demo.imagizercdn.com/doc).
+The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time. See all Imagizer features in our [Doc](http://demo.imagizercdn.com/doc).
 
 ## Installation
 Bower
@@ -41,7 +41,7 @@ npm install --save imagizer-js
 ```html
 <script src="dist/imagizer.min.js"></script>
 <script>
-    // Specify your imagizer hostname 
+    // Specify your imagizer hostname
     imagizerClient.config.imagizerHost = "example.com";
 
     // Optionally, enable Auto device pixel ratio setting.
@@ -89,7 +89,7 @@ npm install --save imagizer-js
 #### Basic Usage
 
 Notice there is no need to specify the image origin host in the data-src attribute.
-Assuming you instance has been configured with a backend 
+Assuming you instance has been configured with a backend
 
 ```html
 <!-- Scale image to 300px wide -->
