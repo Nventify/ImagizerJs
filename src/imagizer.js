@@ -1,17 +1,29 @@
-var DEFAULT_QUALITY = 90;
-var DEFAULT_DPR = 1;
-var DEFAULT_IMAGIZER_HOST = "demo.imagizercdn.com";
-var DEFAULT_RESPONSIVE_SIZE = "100vw";
+(function (global, factory) {
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+        module.exports = factory()
 
-var ATTRIBUTE_NAMES = {
-    datasrc: "data-src",
-    datares: "data-res",
-    src: 'src',
-    srcset: 'srcset',
-    sizes: 'sizes'
-};
+    } else if (typeof define === 'function' && define.amd) {
+        define(factory)
 
-var imagizerClient = (function () {
+    } else {
+        global.ImagizerClient = factory();
+        global.imagizerClient = global.ImagizerClient;
+    }
+
+}(this, (function () {
+
+    var DEFAULT_QUALITY = 90;
+    var DEFAULT_DPR = 1;
+    var DEFAULT_IMAGIZER_HOST = "demo.imagizercdn.com";
+    var DEFAULT_RESPONSIVE_SIZE = "100vw";
+
+    var ATTRIBUTE_NAMES = {
+        datasrc: "data-src",
+        datares: "data-res",
+        src: 'src',
+        srcset: 'srcset',
+        sizes: 'sizes'
+    };
 
     var config = {
         imagizerHost: DEFAULT_IMAGIZER_HOST,
@@ -71,14 +83,16 @@ var imagizerClient = (function () {
         var query = str.split("?");
         str = query[1];
 
-        return (!str && {}) || str.replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this}.bind({}))[0];
+        return (!str && {}) || str.replace(/(^\?)/, '').split("&").map(function (n) {
+                return n = n.split("="), this[n[0]] = n[1], this
+            }.bind({}))[0];
     }
 
     function loadResponsiveImage(image, path, params) {
         delete params.width;
 
         var images = [];
-        for(var i = 100; i < 3000; i+=100) {
+        for (var i = 100; i < 3000; i += 100) {
             params.width = i;
             params.dpr = 1;
 
@@ -103,7 +117,7 @@ var imagizerClient = (function () {
         var url = buildUrl(path, params);
 
         var downloadingImage = new Image();
-        downloadingImage.onload = function(){
+        downloadingImage.onload = function () {
             image.src = this.src;
 
             if (params.width) {
@@ -149,7 +163,7 @@ var imagizerClient = (function () {
         }
 
         var scheme = config.useHttps ? "https" : "http";
-        var url = scheme + "://" +  config.imagizerHost + path;
+        var url = scheme + "://" + config.imagizerHost + path;
 
         if (!params.dpr) {
             if (config.autoDpr) {
@@ -201,4 +215,6 @@ var imagizerClient = (function () {
         config: config,
         buildUrl: buildUrl
     }
-}());
+
+})));
+

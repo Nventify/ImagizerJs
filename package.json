@@ -1,12 +1,15 @@
 {
   "name": "imagizer-js",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "The offical Javascript client of the Imagizer Media Engine",
-  "main": "imagizer.js",
+  "main": "dist/imagizer.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nventify/ImagizerJs.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "nventify",
     "imagizer",
