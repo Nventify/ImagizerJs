@@ -215,7 +215,11 @@
     return {
         loadImages: loadImages,
         config: config,
-        buildUrl: buildUrl
+        buildUrl: buildUrl,
+        parseUrl: parseUrl,
+        getDpr: getDpr,
+        getParams: getParams
     }
+
 })));
 
