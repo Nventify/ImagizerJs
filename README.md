@@ -2,7 +2,7 @@
 
 The official Javascript client of the Imagizer Media Engine
 
-The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time. See all Imagizer features in our [Doc](http://demo.imagizercdn.com/doc).
+The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time. See all Imagizer features in our [Doc](https://docs.imagizer.com).
 
 ## Installation
 Bower
@@ -24,11 +24,11 @@ npm install --save imagizer-js
     // Optionally, enable Auto device pixel ratio setting.
     // Device pixel ratio will now be detected
     // and automatically applied to image urls
-    // http://demo.imagizercdn.com/doc/#dpr-device-pixel-ratio
+    // https://docs.imagizer.com/api_reference/#dpr
     imagizerClient.config.autoDpr = true;
 
     // Optionally, compress our images by setting the global quality
-    // http://demo.imagizercdn.com/doc/#quality
+    // https://docs.imagizer.com/api_reference/#quality
     imagizerClient.config.quality = 60;
 
     // Load images from specified selector
@@ -67,22 +67,22 @@ npm install --save imagizer-js
 
 ```html
 <!-- Scale image to 300px wide -->
-<img data-src="http://demo-images.imagizercdn.com/img911/zPCsEi.jpg?width=300">
+<img data-src="http://demo-images.imagizer.com/img911/zPCsEi.jpg?width=300">
 
 <!-- Scale and crop image to 300px by 300px -->
-<img data-src="http://demo-images.imagizercdn.com/img673/JrvDWd.jpg?width=300&amp;height=300&amp;crop=fit">
+<img data-src="http://demo-images.imagizer.com/img673/JrvDWd.jpg?width=300&amp;height=300&amp;crop=fit">
 
 <!-- Crop image around detected face and scale to 300px wide -->
-<img data-src="http://demo-images.imagizercdn.com/img673/DCxTh3.jpg?crop=face&amp;width=300">
+<img data-src="http://demo-images.imagizer.com/img673/DCxTh3.jpg?crop=face&amp;width=300">
 ```
 #### Responsive Images
 
 ```html
 <!-- Scales and crops image automatically to fit "sizes" attribute -->
-<img data-src="http://demo-images.imagizercdn.com/img673/JrvDWd.jpg" data-res="true" sizes="45vw">
-<img data-src="http://demo-images.imagizercdn.com/img911/zPCsEi.jpg" data-res="true" sizes="45vw">
-<img data-src="http://demo-images.imagizercdn.com/img538/AUodLs.jpg" data-res="true" sizes="45vw">
-<img data-src="http://demo-images.imagizercdn.com/img538/m18Hha.jpg" data-res="true" sizes="45vw">
+<img data-src="http://demo-images.imagizer.com/img673/JrvDWd.jpg" data-res="true" sizes="45vw">
+<img data-src="http://demo-images.imagizer.com/img911/zPCsEi.jpg" data-res="true" sizes="45vw">
+<img data-src="http://demo-images.imagizer.com/img538/AUodLs.jpg" data-res="true" sizes="45vw">
+<img data-src="http://demo-images.imagizer.com/img538/m18Hha.jpg" data-res="true" sizes="45vw">
 ```
 
 ### Using your own Imagizer Instance
@@ -110,7 +110,3 @@ Assuming you instance has been configured with a backend
 <img data-src="/img538/AUodLs.jpg" data-res="true" sizes="45vw">
 <img data-src="/img538/m18Hha.jpg" data-res="true" sizes="45vw">
 ```
-
-## Demos
-- [Basic Usage](http://demo.imagizercdn.com/javascript-demo/resize_images.html)
-- [Responsive Images](http://demo.imagizercdn.com/javascript-demo/responsive_images.html)
