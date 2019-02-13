@@ -2,7 +2,11 @@
 
 The official Javascript client of the Imagizer Media Engine
 
-The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time. See all Imagizer features in our [Doc](https://docs.imagizer.com).
+The Imagizer Media Engine accelerates media delivery to your mobile Apps or Web pages by dynamically rescaling, cropping, and compressing images in real time.
+
+Sign up for the service at [http://cloud.imagizer.com](https://cloud.imagizer.com) or launch and manage your own instance on [AWS](https://aws.amazon.com/marketplace/pp/B019YEIK7M)
+
+See all Imagizer features in our [Doc](https://docs.imagizer.com)
 
 ## Installation
 Bower
@@ -16,97 +20,65 @@ npm install --save imagizer-js
 
 ## Configure
 
-### Using the free to test Imagizer Demo Service
-
+### Using your own Imagizer Instance or source from https://cloud.imagizer.com
 ```html
-<script src="dist/imagizer.min.js"></script>
+<script src="dist/imagizer.js"></script>
 <script>
+    // Specify your Imagizer source endpoint
+    ImagizerClient.config.imagizerHost = "examples.cloud.imagizer.com";
+
+    // Optionally, use https for secured websites
+    ImagizerClient.config.useHttps = true;
+
     // Optionally, enable Auto device pixel ratio setting.
     // Device pixel ratio will now be detected
     // and automatically applied to image urls
     // https://docs.imagizer.com/api_reference/#dpr
-    imagizerClient.config.autoDpr = true;
+    ImagizerClient.config.autoDpr = true;
 
     // Optionally, compress our images by setting the global quality
     // https://docs.imagizer.com/api_reference/#quality
-    imagizerClient.config.quality = 60;
+    ImagizerClient.config.quality = 60;
+ 
+    // Optionally, use best format that's supported by the browser
+    // (webp, jpg, png)
+    // https://docs.imagizer.com/api_reference/#auto
+     ImagizerClient.config.format = "auto";
 
     // Load images from specified selector
     //  use "img" for all img tags
-    imagizerClient.loadImages("img");
-</script>
-```
-
-### Using your own Imagizer Instance
-```html
-<script src="dist/imagizer.min.js"></script>
-<script>
-    // Specify your imagizer hostname
-    imagizerClient.config.imagizerHost = "example.com";
-
-    // Optionally, enable Auto device pixel ratio setting.
-    // Device pixel ratio will now be detected
-    // and automatically applied to image urls
-    // http://demo.imagizercdn.com/doc/#dpr-device-pixel-ratio
-    imagizerClient.config.autoDpr = true;
-
-    // Optionally, compress our images by setting the global quality
-    // http://demo.imagizercdn.com/doc/#quality
-    imagizerClient.config.quality = 60;
-
-    // Load images from specified selector
-    //  use "img" for all img tags
-    imagizerClient.loadImages("img");
+    ImagizerClient.loadImages("img");
 </script>
 ```
 
 ## Usage
 
-### Using the free to test Imagizer Demo Service
-#### Basic Usage
-
-```html
-<!-- Scale image to 300px wide -->
-<img data-src="http://demo-images.imagizer.com/img911/zPCsEi.jpg?width=300">
-
-<!-- Scale and crop image to 300px by 300px -->
-<img data-src="http://demo-images.imagizer.com/img673/JrvDWd.jpg?width=300&amp;height=300&amp;crop=fit">
-
-<!-- Crop image around detected face and scale to 300px wide -->
-<img data-src="http://demo-images.imagizer.com/img673/DCxTh3.jpg?crop=face&amp;width=300">
-```
-#### Responsive Images
-
-```html
-<!-- Scales and crops image automatically to fit "sizes" attribute -->
-<img data-src="http://demo-images.imagizer.com/img673/JrvDWd.jpg" data-res="true" sizes="45vw">
-<img data-src="http://demo-images.imagizer.com/img911/zPCsEi.jpg" data-res="true" sizes="45vw">
-<img data-src="http://demo-images.imagizer.com/img538/AUodLs.jpg" data-res="true" sizes="45vw">
-<img data-src="http://demo-images.imagizer.com/img538/m18Hha.jpg" data-res="true" sizes="45vw">
-```
-
-### Using your own Imagizer Instance
+### Using your own Imagizer Instance or source from https://cloud.imagizer.com
 #### Basic Usage
 
 Notice there is no need to specify the image origin host in the data-src attribute.
-Assuming you instance has been configured with a backend
+Assuming your instance has been configured with a backend
 
 ```html
 <!-- Scale image to 300px wide -->
-<img data-src="/img911/zPCsEi.jpg?width=300">
+<img data-src="/bmw.jpg?width=300">
 
 <!-- Scale and crop image to 300px by 300px -->
-<img data-src="/img673/JrvDWd.jpg?width=300&amp;height=300&amp;crop=fit">
+<img data-src="/kayak.jpg?width=300&height=300&crop=fit">
 
-<!-- Crop image around detected face and scale to 300px wide -->
-<img data-src="/img673/DCxTh3.jpg?crop=face&amp;width=300">
+<!-- Crop image around detected faces and scale to 300px wide -->
+<img data-src="/faces.jpg?crop=face&width=300">
 ```
 #### Responsive Images
 
 ```html
 <!-- Scales and crops image automatically to fit "sizes" attribute -->
-<img data-src="/img673/JrvDWd.jpg" data-res="true" sizes="45vw">
-<img data-src="/img911/zPCsEi.jpg" data-res="true" sizes="45vw">
-<img data-src="/img538/AUodLs.jpg" data-res="true" sizes="45vw">
-<img data-src="/img538/m18Hha.jpg" data-res="true" sizes="45vw">
+<img data-src="/pantheon.jpg" data-res="true" sizes="45vw">
+<img data-src="/ocean.jpg" data-res="true" sizes="45vw">
+<img data-src="/vernazza.jpg" data-res="true" sizes="45vw">
+<img data-src="/vatican.jpg" data-res="true" sizes="45vw">
 ```
+
+## Demos
+- [Basic Usage](http://nventify.github.io/ImagizerJs/demo/resize_images.html)	
+- [Responsive Images](http://nventify.github.io/ImagizerJs/demo/responsive_images.html)

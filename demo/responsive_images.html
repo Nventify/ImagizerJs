@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Imagizer Test Page</title>
-    <script src="../dist/imagizer.js"></script>
+    <script src="../dist/imagizer.min.js"></script>
 
     <link rel="stylesheet" href="css/imagizer.css">
 </head>
@@ -11,44 +11,50 @@
 
 <h2>Imagizer Media Engine: Responsive Images Demo</h2>
 <div class="row responsive-image-container">
-    <img data-src="http://demo-images.imagizercdn.com/img673/JrvDWd.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img911/zPCsEi.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img538/AUodLs.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img538/m18Hha.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img540/r6EjeE.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img538/RVVemq.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img843/ullaw.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img661/Bu8Qv9.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img537/W3yAP1.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img674/jloeiY.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img540/Ma7WrQ.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img905/814523.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img674/8083cb.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img540/b0237d.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img904/blttG0.jpg" data-res="true" sizes="20vw">
-    <img data-src="http://demo-images.imagizercdn.com/img538/KYzmUb.jpg" data-res="true" sizes="20vw">
+    <img data-src="/pantheon.jpg" data-res="true" sizes="20vw">
+    <img data-src="/ocean.jpg" data-res="true" sizes="20vw">
+    <img data-src="/vernazza.jpg" data-res="true" sizes="20vw">
+    <img data-src="/vatican.jpg" data-res="true" sizes="20vw">
+    <img data-src="/eiffeltower.jpg" data-res="true" sizes="20vw">
+    <img data-src="/macarons.jpg" data-res="true" sizes="20vw">
+    <img data-src="/dog.jpg" data-res="true" sizes="20vw">
+    <img data-src="/antelopecanyon.jpg" data-res="true" sizes="20vw">
+    <img data-src="/oldcouple.jpg" data-res="true" sizes="20vw">
+    <img data-src="/camel.jpg" data-res="true" sizes="20vw">
+    <img data-src="/lamborghini.jpg" data-res="true" sizes="20vw">
+    <img data-src="/barn.jpg" data-res="true" sizes="20vw">
+    <img data-src="/gaspump.jpg" data-res="true" sizes="20vw">
+    <img data-src="/forest.jpg" data-res="true" sizes="20vw">
+    <img data-src="/cathedral.jpg" data-res="true" sizes="20vw">
+    <img data-src="/graffiti.jpg" data-res="true" sizes="20vw">
 </div>
 
 <script>
     (function() {
-        // Since we are using Imagizer Engine Demo Service
-        // we'll need to specify our Image storage origin
-        // Imagizer will fetch your images from this endpoint
-        // http://demo.imagizercdn.com/doc/#hostname
-//        imagizerClient.config.originImageHost = "demo-images.imagizercdn.com";
+        // Specify your Imagizer source endpoint
+        ImagizerClient.config.imagizerHost = "examples.cloud.imagizer.com";
 
-        // Enable Auto device pixel ratio setting.
+        // Optionally, use https for secured websites
+        ImagizerClient.config.useHttps = true;
+
+        // Optionally, enable Auto device pixel ratio setting.
         // Device pixel ratio will now be detected
         // and automatically applied to image urls
-        // http://demo.imagizercdn.com/doc/#dpr-device-pixel-ratio
-        imagizerClient.config.autoDpr = true;
+        // https://docs.imagizer.com/api_reference/#dpr
+        ImagizerClient.config.autoDpr = true;
 
-        // Compress our images by setting the global quality
-        // http://demo.imagizercdn.com/doc/#quality
-        imagizerClient.config.quality = 75;
+        // Optionally, compress our images by setting the global quality
+        // https://docs.imagizer.com/api_reference/#quality
+        ImagizerClient.config.quality = 60;
+
+        // Optionally, use best format that's supported by the browser
+        // (webp, jpg, png)
+        // https://docs.imagizer.com/api_reference/#auto
+         ImagizerClient.config.format = "auto";
 
         // Load images from specified selector
-        imagizerClient.loadImages("img");
+        //  use "img" for all img tags
+        ImagizerClient.loadImages("img");
     })();
 </script>
 
