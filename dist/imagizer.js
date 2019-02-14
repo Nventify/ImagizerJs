@@ -48,7 +48,12 @@
                     var urlPaths = parseUrl(path);
 
                     // setup the hostname path to point to the origin server
-                    if (!config.originImageHost && urlPaths.hostname && urlPaths.hostname != DEFAULT_IMAGIZER_HOST) {
+                    if (
+                      !config.originImageHost &&
+                      urlPaths.hostname &&
+                      urlPaths.hostname !== DEFAULT_IMAGIZER_HOST &&
+                      !urlPaths.hostname.match(/^localhost/)
+                    ) {
                         urlPaths.params.hostname = urlPaths.hostname;
                     } else if (config.originImageHost) {
                         urlPaths.params.hostname = config.originImageHost;
